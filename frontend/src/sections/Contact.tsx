@@ -28,7 +28,7 @@ export default function Contact({ settings }: { settings: SiteSettings }) {
     <section id="contact" className="py-20 relative">
       <div className="container-custom relative z-10">
         <SectionHeader
-          eyebrow="06 // contact"
+          eyebrow="07 // contact"
           title="./connect --secure"
           subtitle="Open to internships, junior security roles, CTF teammates, and friendly chats."
         />

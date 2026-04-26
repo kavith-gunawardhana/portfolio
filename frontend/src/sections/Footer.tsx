@@ -8,6 +8,12 @@ export default function Footer({ settings }: { settings: SiteSettings }) {
         <div className="font-mono">
           <span className="text-cyber-cyan">$</span> echo &quot;© {year} {settings.full_name}&quot;
         </div>
+        <div
+          className="font-mono text-[11px] text-slate-600 hover:text-cyber-violet/80 transition cursor-help"
+          title="↑ ↑ ↓ ↓ ← → ← → B A"
+        >
+          # hidden_input::expecting_sequence
+        </div>
         <div className="font-mono">
           built with <span className="text-cyber-cyan">vite</span> +{" "}
           <span className="text-cyber-violet">react</span> +{" "}
