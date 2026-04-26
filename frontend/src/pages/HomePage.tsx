@@ -9,6 +9,8 @@ import {
 } from "../types";
 import MatrixBackground from "../components/MatrixBackground";
 import Navbar from "../components/Navbar";
+import ScrollProgress from "../components/ScrollProgress";
+import KonamiEasterEgg from "../components/KonamiEasterEgg";
 import Hero from "../sections/Hero";
 import About from "../sections/About";
 import Skills from "../sections/Skills";
@@ -63,6 +65,8 @@ export default function HomePage() {
   return (
     <div className="relative">
       <MatrixBackground />
+      <ScrollProgress />
+      <KonamiEasterEgg />
       <div className="relative z-10">
         <Navbar name={settings.handle || settings.full_name} />
         <main>
