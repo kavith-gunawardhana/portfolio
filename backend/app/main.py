@@ -8,6 +8,7 @@ from .routers import (
     auth,
     certifications,
     contact,
+    education,
     jobs,
     projects,
     site_settings,
@@ -42,6 +43,7 @@ app.include_router(auth.router)
 app.include_router(site_settings.router)
 app.include_router(skills.router)
 app.include_router(jobs.router)
+app.include_router(education.router)
 app.include_router(certifications.router)
 app.include_router(projects.router)
 app.include_router(contact.router)

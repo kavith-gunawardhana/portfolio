@@ -6,6 +6,7 @@ import DashboardPage from "./pages/admin/DashboardPage";
 import SettingsPage from "./pages/admin/SettingsPage";
 import SkillsAdminPage from "./pages/admin/SkillsAdminPage";
 import JobsAdminPage from "./pages/admin/JobsAdminPage";
+import EducationAdminPage from "./pages/admin/EducationAdminPage";
 import CertsAdminPage from "./pages/admin/CertsAdminPage";
 import ProjectsAdminPage from "./pages/admin/ProjectsAdminPage";
 import MessagesAdminPage from "./pages/admin/MessagesAdminPage";
@@ -29,6 +30,7 @@ export default function App() {
         <Route path="settings" element={<SettingsPage />} />
         <Route path="skills" element={<SkillsAdminPage />} />
         <Route path="jobs" element={<JobsAdminPage />} />
+        <Route path="education" element={<EducationAdminPage />} />
         <Route path="certifications" element={<CertsAdminPage />} />
         <Route path="projects" element={<ProjectsAdminPage />} />
         <Route path="messages" element={<MessagesAdminPage />} />

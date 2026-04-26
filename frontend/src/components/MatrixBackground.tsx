@@ -31,6 +31,12 @@ export default function MatrixBackground() {
     }
     window.addEventListener("resize", resize);
 
+    let intensifyUntil = 0;
+    const onIntensify = () => {
+      intensifyUntil = performance.now() + 8000;
+    };
+    window.addEventListener("konami", onIntensify);
+
     let raf = 0;
     let last = 0;
     function draw(ts: number) {
@@ -42,21 +48,31 @@ export default function MatrixBackground() {
       }
       last = ts;
 
-      ctx.fillStyle = "rgba(5, 7, 13, 0.08)";
+      const intense = ts < intensifyUntil;
+      ctx.fillStyle = intense ? "rgba(5, 7, 13, 0.04)" : "rgba(5, 7, 13, 0.08)";
       ctx.fillRect(0, 0, width, height);
 
       ctx.font = `${fontSize}px JetBrains Mono, monospace`;
-      for (let i = 0; i < drops.length; i++) {
-        const text = chars[Math.floor(Math.random() * chars.length)];
-        const x = i * fontSize;
-        const y = drops[i] * fontSize;
-        // Head is brighter
-        ctx.fillStyle = Math.random() < 0.04 ? "#a78bfa" : "#22d3ee";
-        ctx.fillText(text, x, y);
-        if (y > height && Math.random() > 0.975) {
-          drops[i] = 0;
+      const passes = intense ? 2 : 1;
+      for (let p = 0; p < passes; p++) {
+        for (let i = 0; i < drops.length; i++) {
+          const text = chars[Math.floor(Math.random() * chars.length)];
+          const x = i * fontSize;
+          const y = drops[i] * fontSize;
+          // Head is brighter; in intense mode pink heads appear
+          if (intense && Math.random() < 0.03) {
+            ctx.fillStyle = "#f472b6";
+          } else if (Math.random() < 0.04) {
+            ctx.fillStyle = "#a78bfa";
+          } else {
+            ctx.fillStyle = "#22d3ee";
+          }
+          ctx.fillText(text, x, y);
+          if (y > height && Math.random() > (intense ? 0.94 : 0.975)) {
+            drops[i] = 0;
+          }
+          drops[i]++;
         }
-        drops[i]++;
       }
       raf = requestAnimationFrame(draw);
     }
@@ -65,6 +81,7 @@ export default function MatrixBackground() {
     return () => {
       cancelAnimationFrame(raf);
       window.removeEventListener("resize", resize);
+      window.removeEventListener("konami", onIntensify);
     };
   }, []);
 

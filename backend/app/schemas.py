@@ -77,6 +77,20 @@ class PromotionIn(BaseModel):
     sort_order: int = 0
 
 
+# ---------- education ----------
+class EducationIn(BaseModel):
+    institution: str
+    degree: str
+    field: str = ""
+    location: str = ""
+    start_date: date
+    end_date: Optional[date] = None
+    description: str = ""
+    grade: str = ""
+    logo_url: str = ""
+    sort_order: int = 0
+
+
 # ---------- certification ----------
 class CertificationIn(BaseModel):
     name: str
