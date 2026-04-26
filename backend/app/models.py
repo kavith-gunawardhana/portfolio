@@ -73,6 +73,20 @@ class Promotion(SQLModel, table=True):
     sort_order: int = 0
 
 
+class Education(SQLModel, table=True):
+    id: Optional[int] = Field(default=None, primary_key=True)
+    institution: str
+    degree: str
+    field: str = ""
+    location: str = ""
+    start_date: date
+    end_date: Optional[date] = None  # null = current
+    description: str = ""
+    grade: str = ""  # GPA / class / honors
+    logo_url: str = ""
+    sort_order: int = 0
+
+
 class Certification(SQLModel, table=True):
     id: Optional[int] = Field(default=None, primary_key=True)
     name: str

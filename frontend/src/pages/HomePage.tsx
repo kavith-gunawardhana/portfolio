@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { api } from "../lib/api";
 import {
   Certification,
+  Education,
   Job,
   Project,
   SiteSettings,
@@ -15,6 +16,7 @@ import Hero from "../sections/Hero";
 import About from "../sections/About";
 import Skills from "../sections/Skills";
 import Experience from "../sections/Experience";
+import EducationSection from "../sections/Education";
 import Certifications from "../sections/Certifications";
 import Projects from "../sections/Projects";
 import Contact from "../sections/Contact";
@@ -24,6 +26,7 @@ export default function HomePage() {
   const [settings, setSettings] = useState<SiteSettings | null>(null);
   const [skills, setSkills] = useState<SkillCategory[]>([]);
   const [jobs, setJobs] = useState<Job[]>([]);
+  const [education, setEducation] = useState<Education[]>([]);
   const [certs, setCerts] = useState<Certification[]>([]);
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
@@ -34,14 +37,16 @@ export default function HomePage() {
       api.get<SiteSettings>("/api/settings"),
       api.get<SkillCategory[]>("/api/skill-categories"),
       api.get<Job[]>("/api/jobs"),
+      api.get<Education[]>("/api/education"),
       api.get<Certification[]>("/api/certifications"),
       api.get<Project[]>("/api/projects"),
     ])
-      .then(([s, sk, j, c, p]) => {
+      .then(([s, sk, j, e, c, p]) => {
         if (!mounted) return;
         setSettings(s.data);
         setSkills(sk.data);
         setJobs(j.data);
+        setEducation(e.data);
         setCerts(c.data);
         setProjects(p.data);
       })
@@ -74,6 +79,7 @@ export default function HomePage() {
           <About settings={settings} />
           <Skills categories={skills} />
           <Experience jobs={jobs} />
+          <EducationSection items={education} />
           <Certifications items={certs} />
           <Projects items={projects} />
           <Contact settings={settings} />
