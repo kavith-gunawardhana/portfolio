@@ -9,7 +9,7 @@ export default function Certifications({ items }: { items: Certification[] }) {
     <section id="certifications" className="py-20 relative">
       <div className="container-custom relative z-10">
         <SectionHeader
-          eyebrow="04 // certifications"
+          eyebrow="05 // certifications"
           title="ls -la certs/"
           subtitle="Verifiable credentials and ongoing learning milestones."
         />

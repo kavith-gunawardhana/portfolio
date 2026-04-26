@@ -7,6 +7,7 @@ const navItems = [
   { to: "/admin/settings", label: "site settings", icon: "⚙" },
   { to: "/admin/skills", label: "skills", icon: "⚔" },
   { to: "/admin/jobs", label: "experience", icon: "💼" },
+  { to: "/admin/education", label: "education", icon: "🎓" },
   { to: "/admin/certifications", label: "certifications", icon: "🛡" },
   { to: "/admin/projects", label: "projects", icon: "📦" },
   { to: "/admin/messages", label: "messages", icon: "✉" },

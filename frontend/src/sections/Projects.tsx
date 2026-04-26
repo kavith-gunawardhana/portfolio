@@ -9,7 +9,7 @@ export default function Projects({ items }: { items: Project[] }) {
     <section id="projects" className="py-20 relative">
       <div className="container-custom relative z-10">
         <SectionHeader
-          eyebrow="05 // projects"
+          eyebrow="06 // projects"
           title="./projects --all"
           subtitle="Hands-on experiments, CTF writeups, home-lab work, and shipped tools."
         />
