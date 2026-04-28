@@ -57,6 +57,20 @@ export interface Job {
   promotions: Promotion[];
 }
 
+export interface Education {
+  id: number;
+  institution: string;
+  degree: string;
+  field: string;
+  location: string;
+  start_date: string;
+  end_date: string | null;
+  description: string;
+  grade: string;
+  logo_url: string;
+  sort_order: number;
+}
+
 export interface Certification {
   id: number;
   name: string;
