@@ -100,7 +100,7 @@ export default function Skills({ categories }: { categories: SkillCategory[] }) 
       <div className="container-custom relative z-10">
         <SectionHeader
           eyebrow="02 // skills"
-          title="$ ./skills"
+          title="./skills"
           subtitle="Tools and toolkits I work with. Sorted by depth within each group."
         />
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-x-16 lg:gap-y-14">
